@@ -1,0 +1,36 @@
+Se quiere trabajar con dos tipos de videos: películas y series. 
+Todo video tiene un ID, un nombre, una duración y un género (drama, acción, misterio).
+
+Las series tienen episodios y cada episodio tiene un título y temporada a la que pertenece.
+
+Nos interesa conocer la calificación promedio que ha recibido cada uno de los videos.
+Esta califiación está en escala de 1 a 5 donde 5 es la mejor calificación.
+
+El sistema debe ser capaz de:
+- Mostrar los videos en general con sus calificaciones
+- Mostrar los episodios de una determinada serie con sus calificaciones
+- Mostrar las películas con sus calificaciones
+
+
+La aplicación debe mostrar el siguiente menu ciclado:
+1. Cargar archivo de datos (csv)
+2. Mostrar los videos en general con una cierta calificación o de un cierto género
+3. Mostrar los episodios de una determinada serie con una calificacion determinada
+4. Mostrar las películas con cierta calificacion
+5. Calificar un video
+    pedir titulo a calificar
+    pedir valor otorgado
+0. Salir
+
+El sistema debe validar todas las entradas dadas por el usuario.
+Verificar que el modelo emplee los mecanismos de Herencia y Polimorfismo.
+Asegurar que el sistema de clases construido funciona correctamente haciendo un programa de aplicación para ese fin.
+
+RESOLUCIÓN DE DUDAS:
+
+Vamos a tener que hacer una seguda clase además de la de Película cuya relación con esta es de agregación
+(clase servicio de streaming tiene adentro muchas películas). Para crear las instancias de la clase (las películas)
+se deben sacar del csv, donde en la línea están los atributos... 
+
+La clase servicio de streaming debe poder crear con polimorfismo muchos objetos mediante un apuntador que guarde los
+mútiples objetos de película
