@@ -11,16 +11,19 @@ int main() {
     vector[3] = new Paquete("Lolo", "A.A. 32B casa 1", "CDMX", "CDMX", 05200, "Harry", "Wild Oaks 24", "NYC", "NY", 10000,100,100,100,100,100);
     vector[4] = new Paquete("Momo", "A.A. 32B casa 1", "CDMX", "CDMX", 05200, "Harry", "Wild Oaks 24", "NYC", "NY", 10000,100,100,100,100,100);
 
+    //float total = 0;
 
     for (int i=0; i < 5; i++){
         Envio *current = vector[i];  // obtengo de los apuntadores cada figura y la guardo en current
-    
         std::cout << "-----------------------------\n";
         std::cout << "Costo del Envío #" << i+1 << ": $" << current->calculaCosto() << "\n\n";
+        //total = total + current->calculaCosto();
         std::cout << current->getDirDest() << "\n";
         std::cout << current->getDirRem();
         std::cout << "-----------------------------\n";
         }
+        
+    //std::cout << "Total de Envios: $" << total << "\n";
 }
 #endif
 
