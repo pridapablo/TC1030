@@ -1,0 +1,47 @@
+Utiliza la jerarquía de herencia de paquetes creada en la tarea de Herencia para
+crear un programa que muestre la información de la dirección y calcule el costo de
+envío para varios envíos.
+
+El programa debe contener un vector de apuntadores de tipo Envío a objetos de
+las clases Paquete y Sobre.
+
+Escribe un ciclo que itere en el vector para procesar los envíos polimórficamente.
+Para cada Envío, invoca a las funciones get para obtener la información de la
+dirección del remitente y el destinatario, luego imprime las dos direcciones tal
+como aparecerían en las etiquetas de correo.
+
+FALTA También, llama a la función calculaCosto de cada envío e imprime el resultado.
+Lleva un registro del costo total de envío para todos los envíos en el vector , y
+muestra este total cuando el ciclo termine.
+
+Subir en Canvas un archivo .ZIP que contenga los archivos necesarios que
+implementen una solución a esta problemática:
+
+Documento pdf que incluya el diagrama UML del sistema de clases diseñado,
+junto con una explicación detallada de dónde se encuentra aplicado el concepto de Polimorfismo
+Archivo ZIP de la carpeta del proyecto implementado.
+
+## Checklist
+SI Se declara la clase Envio
+SI Se declara la clase Sobre
+SI Se declara la clase Paquete  
+SI Se declaran los atributos de la clase Envio  
+SI Se declaran los atributos de la clase Sobre  
+SI Se declaran los atributos de la clase Paquete  
+SI Se declaran los métodos de la clase Envio   
+SI Se declaran los métodos de la clase Sobre   
+SI Se declaran los métodos de la clase Paquete   
+SI La Clase Sobre hereda de Envio  
+SI La Clase Paquete hereda de Envio  
+CalculaCosto de Sobre regresa el valor esperado  
+CalculaCosto de Paquete regresa el valor esperado  
+SI Envio declara al método CalculaCosto como virtual  
+SI Sobre declara el método CalculaCosto con exactamente la misma firma que Envio  
+SI Paquete declara el método CalculaCosto con exactamente la misma firma que Envio   
+SI main declara e inicializa un vector que contiene objetos de tipo apuntador a Envio  
+SI Se añaden elementos de tipo sobre y paquete al vector  
+SI Se itera sobre los objetos dentro del vector  
+main despliega los valores correctos de calculaCosto para Sobre  
+main despliega los valores correctos de calculaCosto para Paquete  
+SI El código compila
+El código sigue las reglas de programación definidas (nombres de variables, un archivo h y cpp por cada clase)   
