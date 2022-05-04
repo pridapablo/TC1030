@@ -1,8 +1,10 @@
-class ServicioDeStreaming{
-//private:
+class ServicioDeStreaming
+{
+    // private:
 };
 
-class Video{
+class Video
+{
 protected:
     int ID;
     std::string nombre;
@@ -10,7 +12,8 @@ protected:
     std::string genero;
     int calif;
 
-    Video(){
+    Video()
+    {
         ID = -1;
         nombre = "";
         duracionMin = -1;
@@ -18,61 +21,73 @@ protected:
         calif = -1;
     }
 
-    Video(int ID_, std::string nombre_, int duracionMin_, std::string genero_, int calif_){
+    Video(int ID_, std::string nombre_, int duracionMin_, std::string genero_, int calif_)
+    {
         ID = ID_;
         nombre = nombre_;
         duracionMin = duracionMin_;
         genero = genero_;
         calif = calif_;
     }
+
 public:
-    std::string getName(){
+    std::string getName()
+    {
         return nombre;
     }
-    std::string getGen(){
+    std::string getGen()
+    {
         return genero;
     }
-    int getID(){
+    int getID()
+    {
         return ID;
     }
-    int getRuntime(){
+    int getRuntime()
+    {
         return duracionMin;
     }
-    int getCalif(){
+    int getCalif()
+    {
         return calif;
     }
-    void setCalif(int cal){
+    void setCalif(int cal)
+    {
         calif = cal;
     }
-    //virtuales los métodos que no se compartan
-    // virtual std::string getNameEp() = 0;
-    // virtual int getSeason() = 0;
-
-    
+    // virtuales los métodos que no se compartan
+    //  virtual std::string getNameEp() = 0;
+    //  virtual int getSeason() = 0;
 };
 
-class Pelicula : public Video {
+class Pelicula : public Video
+{
 public:
-    Pelicula(){}
-    Pelicula(int ID_, std::string nombre_, int duracionMin_, std::string genero_, int calif_) : Video(ID_, nombre_, duracionMin_, genero_, calif_){}
+    Pelicula() {}
+    Pelicula(int ID_, std::string nombre_, int duracionMin_, std::string genero_, int calif_) : Video(ID_, nombre_, duracionMin_, genero_, calif_) {}
 };
 
-class Episodio : public Video {
-//private:
+class Episodio : public Video
+{
+    // private:
     std::string nomEpisodio;
     int temporada;
+
 public:
-    Episodio(){}
-    Episodio(int ID_, std::string nombre_, int duracionMin_, std::string genero_, int calif_, std::string nomEpisodio_, int temporada_) : Video(ID_, nombre_, duracionMin_, genero_, calif_){
+    Episodio() {}
+    Episodio(int ID_, std::string nombre_, int duracionMin_, std::string genero_, int calif_, std::string nomEpisodio_, int temporada_) : Video(ID_, nombre_, duracionMin_, genero_, calif_)
+    {
         nomEpisodio = nomEpisodio_;
         temporada = temporada_;
     }
-    std::string getNameEp(){
+    std::string getNameEp()
+    {
         return nomEpisodio;
     }
-    int getSeason(){
+    int getSeason()
+    {
         return temporada;
     }
 };
 
-//exception::typeid
+// exception::typeid
