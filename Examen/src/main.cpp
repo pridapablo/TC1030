@@ -90,16 +90,18 @@ int main()
         else if (opcion == 3)
         {
             std::cout << "--------- Gatitos ---------\n";
-            for (int j = 0; j < sizeGato; j++){
-                    Gato *g = gatos[j];
-                    g->hablar();
-                }
+            for (int j = 0; j < sizeGato; j++)
+            {
+                Gato *g = gatos[j];
+                g->hablar();
+            }
             std::cout << "---------------------------\n";
             std::cout << "--------- Perritos ---------\n";
-            for (int x = 0; x < sizePerro; x++){
-                    Perro *p = perros[x];
-                    p->hablar();
-                }
+            for (int x = 0; x < sizePerro; x++)
+            {
+                Perro *p = perros[x];
+                p->hablar();
+            }
             std::cout << "---------------------------\n";
         }
         return 0;

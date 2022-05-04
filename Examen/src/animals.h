@@ -28,7 +28,8 @@ public:
     {
         edad = edad_;
     }
-    int getEdad(){
+    int getEdad()
+    {
         return edad;
     }
 };
@@ -38,13 +39,14 @@ class Perro : public Animal
 private:
     std::string raza;
     std::string ladrido;
+
 public:
     Perro()
     {
         raza = "";
         ladrido = "";
     }
-    Perro(std::string nombre_, int edad_, std::string especie_,std::string raza_, std::string ladrido_) : Animal(nombre_, edad_, especie_)
+    Perro(std::string nombre_, int edad_, std::string especie_, std::string raza_, std::string ladrido_) : Animal(nombre_, edad_, especie_)
     {
         raza = raza_;
         ladrido = ladrido_;
@@ -66,13 +68,14 @@ class Gato : public Animal
 private:
     std::string colorPelaje;
     std::string maullido;
+
 public:
     Gato()
     {
         colorPelaje = "";
         maullido = "";
     }
-    Gato(std::string nombre_, int edad_, std::string especie_,std::string colorPelaje_, std::string maullido_) : Animal(nombre_, edad_, especie_)
+    Gato(std::string nombre_, int edad_, std::string especie_, std::string colorPelaje_, std::string maullido_) : Animal(nombre_, edad_, especie_)
     {
         colorPelaje = colorPelaje_;
         maullido = maullido_;
