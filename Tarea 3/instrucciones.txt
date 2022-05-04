@@ -22,26 +22,26 @@ junto con una explicación detallada de dónde se encuentra aplicado el concepto
 Archivo ZIP de la carpeta del proyecto implementado.
 
 ## Checklist
-SI Se declara la clase Envio
-SI Se declara la clase Sobre
-SI Se declara la clase Paquete  
-SI Se declaran los atributos de la clase Envio  
-SI Se declaran los atributos de la clase Sobre  
-SI Se declaran los atributos de la clase Paquete  
-SI Se declaran los métodos de la clase Envio   
-SI Se declaran los métodos de la clase Sobre   
-SI Se declaran los métodos de la clase Paquete   
-SI La Clase Sobre hereda de Envio  
-SI La Clase Paquete hereda de Envio  
+Se declara la clase Envio
+Se declara la clase Sobre
+Se declara la clase Paquete  
+Se declaran los atributos de la clase Envio  
+Se declaran los atributos de la clase Sobre  
+Se declaran los atributos de la clase Paquete  
+Se declaran los métodos de la clase Envio   
+Se declaran los métodos de la clase Sobre   
+Se declaran los métodos de la clase Paquete   
+La Clase Sobre hereda de Envio  
+La Clase Paquete hereda de Envio  
 CalculaCosto de Sobre regresa el valor esperado  
 CalculaCosto de Paquete regresa el valor esperado  
-SI Envio declara al método CalculaCosto como virtual  
-SI Sobre declara el método CalculaCosto con exactamente la misma firma que Envio  
-SI Paquete declara el método CalculaCosto con exactamente la misma firma que Envio   
-SI main declara e inicializa un vector que contiene objetos de tipo apuntador a Envio  
-SI Se añaden elementos de tipo sobre y paquete al vector  
-SI Se itera sobre los objetos dentro del vector  
+Envio declara al método CalculaCosto como virtual  
+Sobre declara el método CalculaCosto con exactamente la misma firma que Envio  
+Paquete declara el método CalculaCosto con exactamente la misma firma que Envio   
+main declara e inicializa un vector que contiene objetos de tipo apuntador a Envio  
+Se añaden elementos de tipo sobre y paquete al vector  
+Se itera sobre los objetos dentro del vector  
 main despliega los valores correctos de calculaCosto para Sobre  
 main despliega los valores correctos de calculaCosto para Paquete  
-SI El código compila
+El código compila
 El código sigue las reglas de programación definidas (nombres de variables, un archivo h y cpp por cada clase)   

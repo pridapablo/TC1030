@@ -3,27 +3,76 @@ class ServicioDeStreaming{
 };
 
 class Video{
-//private:
+protected:
     int ID;
     std::string nombre;
-    std::chrono::minutes duracion;
+    int duracionMin;
     std::string genero;
+    int calif;
 
+    Video(){
+        ID = -1;
+        nombre = "";
+        duracionMin = -1;
+        genero = "";
+        calif = -1;
+    }
+
+    Video(int ID_, std::string nombre_, int duracionMin_, std::string genero_, int calif_){
+        ID = ID_;
+        nombre = nombre_;
+        duracionMin = duracionMin_;
+        genero = genero_;
+        calif = calif_;
+    }
 public:
-    Video(){}
+    std::string getName(){
+        return nombre;
+    }
+    std::string getGen(){
+        return genero;
+    }
+    int getID(){
+        return ID;
+    }
+    int getRuntime(){
+        return duracionMin;
+    }
+    int getCalif(){
+        return calif;
+    }
+    void setCalif(int cal){
+        calif = cal;
+    }
+    //virtuales los métodos que no se compartan
+    // virtual std::string getNameEp() = 0;
+    // virtual int getSeason() = 0;
 
+    
 };
 
-class Pelicula{
-//private:
+class Pelicula : public Video {
+public:
+    Pelicula(){}
+    Pelicula(int ID_, std::string nombre_, int duracionMin_, std::string genero_, int calif_) : Video(ID_, nombre_, duracionMin_, genero_, calif_){}
 };
 
-class Serie{
+class Episodio : public Video {
 //private:
-};
-
-class Episodio{
-//private:
-    std::string titulo;
+    std::string nomEpisodio;
     int temporada;
+public:
+    Episodio(){}
+    Episodio(int ID_, std::string nombre_, int duracionMin_, std::string genero_, int calif_, std::string nomEpisodio_, int temporada_) : Video(ID_, nombre_, duracionMin_, genero_, calif_){
+        nomEpisodio = nomEpisodio_;
+        temporada = temporada_;
+    }
+    std::string getNameEp(){
+        return nomEpisodio;
+    }
+    int getSeason(){
+        return temporada;
+    }
 };
+
+//exception::typeid

@@ -1,13 +1,11 @@
-class Envio{
+class Envio{ // Se declara la clase Envio
 private:
-    // Datos del Remitente
+    // Se declaran los atributos de la clase Envio  
     std::string nomRem;
     std::string dirRem;
     std::string cdRem;
     std::string edoRem;
     int cpRem;
-
-    // Datos del Destinatario
     std::string nomDest;
     std::string dirDest;
     std::string cdDest;
@@ -18,6 +16,7 @@ protected:
     double costo; 
 
 public:
+    // Se declaran los métodos de la clase Envio   
     Envio() {
         costo = 100;
 
@@ -48,7 +47,7 @@ public:
         cpRem = cpRemP;
     }
 
-    virtual double calculaCosto(){
+    virtual double calculaCosto(){ // Envio declara al método CalculaCosto como virtual  
         return costo;
     }
 
@@ -69,8 +68,9 @@ public:
     }
 };
 
-class Paquete : public Envio {
+class Paquete : public Envio { // Se declara la clase Paquete y hereda de Envio
 private:
+    // Se declaran los atributos de la clase Paquete 
     double largo;
     double ancho;
     double profundidad;
@@ -78,6 +78,7 @@ private:
     double costoXkg;
 
 public:
+    // Se declaran los métodos de la clase Paquete   
     Paquete(){
         largo = 0;
         ancho = 0;
@@ -92,18 +93,21 @@ public:
         peso = std::abs(pesoP);
         costoXkg = std::abs(costoXkgP);
     }
-    double calculaCosto(){
+    double calculaCosto(){ // Paquete declara el método CalculaCosto con exactamente la misma firma que Envio   
+
         costo += (peso*costoXkg);
         return costo;
         }
 };
 
-class Sobre : public Envio {
+class Sobre : public Envio { // Se declara la clase Sobre y hereda de Envio
 private:
+    // Se declaran los atributos de la clase Sobre 
     double cargoAdicional;
     double ancho;
     double largo;
 public:
+    // Se declaran los métodos de la clase Sobre
     Sobre(){
         cargoAdicional = 200.13;
         ancho = 0;
@@ -115,7 +119,8 @@ public:
         largo = largoP;
     }
 
-    double calculaCosto(){
+    double calculaCosto(){ // Sobre declara el método CalculaCosto con exactamente la misma firma que Envio  
+
         if (std::max(largo,ancho) > 30 || std::min(largo,ancho) > 25) {
             costo += cargoAdicional;
         }
