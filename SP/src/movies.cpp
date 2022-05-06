@@ -5,6 +5,7 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
+#include <string>
 #include "movies.h"
 
 #define USING_MAIN
@@ -12,19 +13,17 @@
 
 int main()
 {
+    int sizePelic = 2;
+    int sizeSer = 2;
+    Pelicula *p[sizePelic];
+    Episodio *s[sizeSer];
 
-    int size = 2;
-    Video *lib[size];
-    lib[0] = new Pelicula(1, "Peli1", 20, "Genero1", 10);
-    lib[1] = new Episodio(2, "Peli2", 30, "Genero2", 10, "Ep1", 2);
-
-    for (int i = 0; i < size; i++)
-    {
-        Video *current = lib[i];
-    }
+    p[0] = new Pelicula(1, "Yo No Fui", 120, "Comedia 2", 5);
+    p[1] = new Pelicula(2, "Mi Boda", 150, "Drama", 4);
+    s[0] = new Episodio(1, "Downton", 30, "Drama", 45, "Piloto", 4);
+    s[1] = new Episodio(2, "Drop Dead Diva", 30, "Comedia", 5, "Piloto 2", 5);
 
     // Menú
-
     int opcion = -1;
     while (opcion != 0)
     {
@@ -44,14 +43,17 @@ int main()
             system("clear");
             std::cout << "Ha elegido: \n";
             std::cout << "1. Cargar archivo de datos\n";
-            std::cout << "-----------------------------\n";
-            break;
+            std::cout << "----------------------------------------------\n";
+            std::cout << "Esta funcionalidad aún no ha sido implementada\n";
+            std::cout << "----------------------------------------------\n";
+            std::this_thread::sleep_for(std::chrono::seconds(3));
         }
         else if (opcion == 2)
         {
             system("clear");
             std::cout << "Ha elegido: \n";
             std::cout << "2. Mostrar los videos en general con una cierta calificación o de un cierto género\n";
+            std::cout << "-----------------------------\n";
             int opcion2 = -1;
             while (opcion2 != 0)
             {
@@ -59,6 +61,7 @@ int main()
                 std::cout << "Eliga una de las siguientes opciones: \n";
                 std::cout << "1. Mostrar videos en general con una cierta calificación\n";
                 std::cout << "2. Mostrar videos en general de un cierto género\n";
+                std::cout << "0. Menú anterior\n";
                 std::cin >> opcion2;
                 if (opcion2 == 1)
                 {
@@ -70,23 +73,28 @@ int main()
                     int cali;
                     std::cin >> cali;
 
-                    // CICLO PARA VER VIDEOS CON CALIFICACIÓN cali
-                    for (int i = 0; i < size; i++)
+                    // CICLOS PARA VER VIDEOS CON CALIFICACIÓN cali
+                    for (int i = 0; i < sizePelic; i++)
                     {
-                        Video *current = lib[i];
+                        Pelicula *current = p[i];
                         int cal = current->getCalif();
                         std::string nom = current->getName();
                         if (cal == cali)
                         {
-                            std::cout << "El video " << nom << " tiene calificación " << cal << std::endl;
-                        }
-                        else
-                        {
-                            break;
-                            std::cout << "Error: parámetros incorrectos, no se encontraron coincidencias \n";
+                            std::cout << "La película " << nom << " tiene calificación " << cal << std::endl;
                         }
                     }
-                    break;
+                    for (int i = 0; i < sizeSer; i++)
+                    {
+                        Episodio *current = s[i];
+                        int cal = current->getCalif();
+                        std::string nom = current->getName();
+                        if (cal == cali)
+                        {
+                            std::cout << "La serie " << nom << " tiene calificación " << cal << std::endl;
+                        }
+                    }
+                    std::this_thread::sleep_for(std::chrono::seconds(3));
                 }
                 else if (opcion2 == 2)
                 {
@@ -96,24 +104,38 @@ int main()
                     std::cout << "-----------------------------\n";
                     std::cout << "Ingrese un género \n";
                     std::string gen;
-                    std::cin >> gen;
+                    std::cin.ignore();
+                    std::getline(std::cin, gen);
 
                     // CICLO PARA VER VIDEOS CON GÉNERO gen
-                    for (int i = 0; i < size; i++)
+                    for (int i = 0; i < sizePelic; i++)
                     {
-                        Video *current = lib[i];
+                        Pelicula *current = p[i];
                         std::string gene = current->getGen();
                         std::string nom = current->getName();
                         if (gen == gene)
                         {
-                            std::cout << "El video " << nom << " tiene como género " << gene << std::endl;
-                        }
-                        else
-                        {
-                            break;
-                            std::cout << "Error: parámetros incorrectos, no se encontraron coincidencias \n";
+                            std::cout << "La película " << nom << " es de género " << gene << std::endl;
                         }
                     }
+                    for (int i = 0; i < sizeSer; i++)
+                    {
+                        Episodio *current = s[i];
+                        std::string gene = current->getGen();
+                        std::string nom = current->getName();
+                        if (gen == gene)
+                        {
+                            std::cout << "La serie " << nom << " es de género " << gene << std::endl;
+                        }
+                    }
+                    std::this_thread::sleep_for(std::chrono::seconds(3));
+                    break;
+                }
+                else if (opcion2 == 0)
+                {
+                    system("clear");
+                    std::cout << "Regresando al menú anterior\n";
+                    std::this_thread::sleep_for(std::chrono::seconds(1));
                     break;
                 }
                 else
@@ -121,9 +143,9 @@ int main()
                     system("clear");
                     std::cout << "Opción inválida... reiniciando menú\n";
                     std::this_thread::sleep_for(std::chrono::seconds(2));
+                    break;
                 }
             }
-            break;
         }
         else if (opcion == 3)
         {
@@ -133,23 +155,26 @@ int main()
             std::cout << "-----------------------------\n";
             std::cout << "Ingrese una serie \n";
             std::string ser;
-            std::cin >> ser;
+            std::cin.ignore();
+            std::getline(std::cin, ser);
+
             std::cout << "Ingrese una calificación del 1 al 5 \n";
             int cali;
             std::cin >> cali;
-            break;
 
             // CICLO PARA VER EPISODIOS DE SERIE ser CON CALIFICACIÓN cali
-
-            // for (int i = 0; i < size; i++){
-            //     Video *current = lib[i];
-            //     std::string nomEp = current->getNameEp();
-            //     std::string nom = current->getName();
-            //     int cal = current->getCalif();
-            //     if(cal == cali){
-            //         std::cout << "El episodio " << nomEp << "de la serie " << nom << " tiene calificación " << cal << std::endl;
-            //     }
-            // }
+            for (int i = 0; i < sizeSer; i++)
+            {
+                Episodio *current = s[i];
+                std::string nomEp = current->getNameEp();
+                std::string nom = current->getName();
+                int cal = current->getCalif();
+                if (cal == cali && nom == ser)
+                {
+                    std::cout << "El episodio " << nomEp << " de la serie " << nom << " tiene calificación " << cal << std::endl;
+                }
+            }
+            std::this_thread::sleep_for(std::chrono::seconds(3));
         }
         else if (opcion == 4)
         {
@@ -162,23 +187,17 @@ int main()
             std::cin >> cali;
 
             // CICLO PARA VER PELÍCULAS CON CALIFICACIÓN cali
-            for (int i = 0; i < size; i++)
+            for (int i = 0; i < sizePelic; i++)
             {
-                Video *current = lib[i];
+                Pelicula *current = p[i];
                 std::string nom = current->getName();
                 int cal = current->getCalif();
                 if (cal == cali)
                 {
-                    // ESTO IMPRIME TAMBIÉN SERIES!!!! ARREGLAR PARA QUE SOLO SEAN PELÍCULAS
                     std::cout << "La película " << nom << " tiene calificación " << cal << std::endl;
                 }
-                else
-                {
-                    break;
-                    std::cout << "Error: parámetros incorrectos, no se encontraron coincidencias \n";
-                }
             }
-            break;
+            std::this_thread::sleep_for(std::chrono::seconds(3));
         }
         else if (opcion == 5)
         {
@@ -186,26 +205,89 @@ int main()
             std::cout << "Ha elegido: \n";
             std::cout << "5. Calificar un video\n";
             std::cout << "-----------------------------\n";
-            std::cout << "Eliga el título a calificar\n";
-            std::string tit;
-            std::cin >> tit;
-            std::cout << "Ingrese una calificación del 1 al 5 \n";
-            int cali;
-            std::cin >> cali;
 
-            // CICLO PARA CALIFICAR EL TÍTULO tit CON CALIFICACIÓN cali
-            for (int i = 0; i < size; i++)
+            int opcion3 = -1;
+            while (opcion3 != 0)
             {
-                Video *current = lib[i];
-                std::string nom = current->getName();
-                if (nom == tit)
+                system("clear");
+                std::cout << "Eliga una de las siguientes opciones: \n";
+                std::cout << "1. Calificar una película\n";
+                std::cout << "2. Calificar un episodio de una serie\n";
+                std::cout << "0. Menú anterior\n";
+                std::cin >> opcion3;
+                if (opcion3 == 1)
                 {
-                    current->setCalif(cali);
-                    std::cout << "La calificacion del Video " << nom << " ahora es " << current->getCalif() << std::endl;
+                    system("clear");
+                    std::cout << "Ha elegido calificar una película\n";
+                    std::cout << "Eliga el título a calificar\n";
+                    std::string titu;
+                    std::cin.ignore();
+                    std::getline(std::cin, titu);
+                    std::cout << "Ingrese una calificación del 1 al 5 \n";
+                    int calii;
+                    std::cin >> calii;
+                    for (int i = 0; i < sizePelic; i++)
+                    {
+                        Pelicula *current = p[i];
+                        std::string nome = current->getName();
+                        if (nome == titu)
+                        {
+                            //std::cout << "1 :) \n ";
+                            current->setCalif(calii);
+                            //current+calii; //sobrecarga del setter
+                            std::cout << "La calificacion de la película " << nome << " ahora es " << current->getCalif() << std::endl;
+                        }
+                    }
+                    std::this_thread::sleep_for(std::chrono::seconds(3));
+                    break;
+                }
+                else if (opcion3 == 2)
+                {
+                    system("clear");
+                    std::cout << "Ha elegido calificar un episodio de una serie\n";
+                    std::cout << "Eliga el nombre de la serie\n";
+                    std::string tit;
+                    std::cin.ignore();
+                    std::getline(std::cin, tit);
+
+                    std::cout << "Eliga el episodio a calificar\n";
+                    std::string ep;
+                    std::getline(std::cin, ep);
+
+                    std::cout << "Ingrese una calificación del 1 al 5 \n";
+                    int cali;
+                    std::cin >> cali;
+                    for (int i = 0; i < sizePelic; i++)
+                    {
+                        Episodio *current = s[i];
+                        std::string nom = current->getName();
+                        std::string epi = current->getNameEp();
+                        if (nom == tit && epi == ep)
+                        {
+                            current->setCalif(cali);
+                            //current+cali; //sobrecarga del setter
+                            std::cout << "La calificacion del episodio " << epi << " ahora es " << current->getCalif() << std::endl;
+                        }
+                    }
+                    std::this_thread::sleep_for(std::chrono::seconds(3));
+                    break;
+                }
+                else if (opcion3 == 0)
+                {
+                    system("clear");
+                    std::cout << "Regresando al menú anterior\n";
+                    std::this_thread::sleep_for(std::chrono::seconds(1));
+                    break;
+                }
+                else
+                {
+                    std::cout << opcion3 << "\n";
+                    // system("clear");
+                    std::cout << "Opción inválida... reiniciando menú\n";
+                    // std::this_thread::sleep_for(std::chrono::seconds(2));
+                    // break;
                 }
             }
-
-            break;
         }
         else if (opcion == 0)
         {
@@ -216,8 +298,8 @@ int main()
         else
         {
             system("clear");
-            std::cout << "Opción inválida... reiniciando menú\n";
-            std::this_thread::sleep_for(std::chrono::seconds(2));
+            std::cout << "Opción inválida... Hasta luego\n";
+            break;
         }
     }
 }

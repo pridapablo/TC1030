@@ -1,9 +1,13 @@
-class ServicioDeStreaming
-{
-    // private:
+class Servicio{
+    virtual std::string getName() = 0;
+    virtual std::string getGen() = 0;
+    virtual int getID() = 0;
+    virtual int getRuntime() = 0;
+    virtual int getCalif() = 0;
+    virtual void setCalif(int cal) = 0;
 };
 
-class Video
+class Video : public Servicio
 {
 protected:
     int ID;
@@ -55,9 +59,10 @@ public:
     {
         calif = cal;
     }
-    // virtuales los métodos que no se compartan
-    //  virtual std::string getNameEp() = 0;
-    //  virtual int getSeason() = 0;
+    void operator+(const Video& otro)
+    {
+        this->setCalif(otro.calif);
+    }
 };
 
 class Pelicula : public Video
@@ -89,5 +94,3 @@ public:
         return temporada;
     }
 };
-
-// exception::typeid

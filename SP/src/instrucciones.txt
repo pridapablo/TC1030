@@ -34,3 +34,16 @@ se deben sacar del csv, donde en la línea están los atributos...
 
 La clase servicio de streaming debe poder crear con polimorfismo muchos objetos mediante un apuntador que guarde los
 mútiples objetos de película
+
+Al calificar un video, el setter debe ser un operador!!!!
+El menú si se debe ciclar
+Se puede o no limitar con códgio la calificacion dada
+Hacer una interfaz que herede a Video
+
+Do:
+Si lo haces con do este es el syntax:
+
+do {
+    <Program statements>
+} while(>Condición>)
+<Condición>*
