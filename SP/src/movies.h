@@ -1,3 +1,8 @@
+/*
+Pablo Banzo Prida -- A0172031
+TC1030.201 -- POO -- Jesús Leopoldo Llano García
+*/
+
 class Servicio{
     virtual std::string getName() = 0;
     virtual std::string getGen() = 0;

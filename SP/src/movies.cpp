@@ -1,5 +1,8 @@
-// Importar datos usando std::fstream = 3 pt extras
-// ifstream es una clase que permite crear la instancia fich para leer de un fichero
+/*
+Pablo Banzo Prida -- A0172031
+TC1030.201 -- POO -- Jesús Leopoldo Llano García
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
