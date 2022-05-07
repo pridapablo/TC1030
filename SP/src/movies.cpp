@@ -89,9 +89,11 @@ int main()
                         Episodio *current = s[i];
                         int cal = current->getCalif();
                         std::string nom = current->getName();
+                        std::string epi = current->getNameEp();
+                        int temp = current->getSeason();
                         if (cal == cali)
                         {
-                            std::cout << "La serie " << nom << " tiene calificación " << cal << std::endl;
+                            std::cout << "El episodio " << epi << " de la temporada " << temp << " de la serie " << nom << " tiene calificación " << cal << std::endl;
                         }
                     }
                     std::this_thread::sleep_for(std::chrono::seconds(3));
@@ -232,9 +234,7 @@ int main()
                         std::string nome = current->getName();
                         if (nome == titu)
                         {
-                            //std::cout << "1 :) \n ";
-                            current->setCalif(calii);
-                            //current+calii; //sobrecarga del setter
+                            (*current) % calii; //sobrecarga del setter
                             std::cout << "La calificacion de la película " << nome << " ahora es " << current->getCalif() << std::endl;
                         }
                     }
@@ -264,8 +264,7 @@ int main()
                         std::string epi = current->getNameEp();
                         if (nom == tit && epi == ep)
                         {
-                            current->setCalif(cali);
-                            //current+cali; //sobrecarga del setter
+                            (*current) % cali; //sobrecarga del setter
                             std::cout << "La calificacion del episodio " << epi << " ahora es " << current->getCalif() << std::endl;
                         }
                     }

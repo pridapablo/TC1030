@@ -59,9 +59,9 @@ public:
     {
         calif = cal;
     }
-    void operator+(const Video& otro)
+    void operator%(int c)
     {
-        this->setCalif(otro.calif);
+        this->setCalif(c);
     }
 };
 
